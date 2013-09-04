@@ -1,0 +1,48 @@
+---
+layout: post
+---
+
+{{ content }}
+
+
+<ol>
+
+{% for step in page.steps %}
+<hr>
+
+<div class="row">
+  <div class="col-md-4">
+    <li>{{ step[0] }}</li>
+  </div>
+  <div class="col-md-8">    
+    {% for image in step[1] %}
+
+    <a data-toggle="modal" href="#{{ image | remove:'.' }}"><img class="img-thumbnail" src="/images/thumbs/{{ image }}"></a>
+
+    {%  endfor %}
+  </div>
+</div>
+
+{%  endfor %}
+
+</ol>
+
+{% for step in page.steps %}
+    {% for image in step[1] %}
+    <div class="modal fade" id="{{ image | remove:'.' }}" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+	<div class="modal-content">    
+	  <!-- div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	  </div -->
+	  <div class="modal-body">
+	    <p class="text-center"><img class="" src="/images/{{ image }}"></p>
+	  </div>
+	  <!-- div class="modal-footer">
+	    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	  </div -->
+	</div>
+      </div>
+    </div>
+{%  endfor %}
+{%  endfor %}

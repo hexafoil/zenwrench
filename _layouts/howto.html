@@ -1,0 +1,43 @@
+---
+layout: post
+---
+
+{{ content }}
+
+
+<ol>
+
+{% for row in page.procedure %}
+<hr>
+
+<div class="row">
+  <div class="col-md-4">
+    <li>
+      {% for step in row['steps'] %}
+      <p>{{ step }}</p>
+      {% endfor %}
+    </li>
+  </div>
+  <div class="col-md-8">    
+    {% for pic in row['pics'] %}
+
+    <a data-toggle="modal" href="#{{ pic | remove:'.' }}"><img class="img-thumbnail" src="/images/thumbs/{{ pic }}"></a>
+
+    <div class="modal fade" id="{{ pic | remove:'.' }}" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+	<div class="modal-content">    
+	  <div class="modal-body">
+	    <p class="text-center"><img src="/images/{{ pic }}"></p>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    {%  endfor %}
+  </div>
+</div>
+
+{%  endfor %}
+
+</ol>
+

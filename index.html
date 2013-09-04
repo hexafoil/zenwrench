@@ -1,0 +1,28 @@
+---
+layout: default
+title: ZenWrench Blog
+---
+
+{% for post in site.posts %}
+
+<a href="{{ post.url }}" style="text-decoration: none; color: #333">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+	<div class="col-md-3">
+	  <img src="/images/thumbs/{{ post.thumb }}" class="img-responsive">
+	</div>
+	<div class="col-md-9">
+	  <h2>{{ post.title }}</h2>
+	  <p>{{ post.excerpt }}</p>      
+	</div>
+      </div>
+    </div>
+    
+    <div class="panel-footer">
+      {{ post.author }} posted on {{ post.date | date_to_long_string }}
+    </div>
+  </div>
+</a>
+
+{% endfor %}

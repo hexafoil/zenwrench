@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% if page.path == 'index.html' %}
+      {% capture new_title %}
+        {{ site.name }} Blog - Motorcycle Maintenance and Repair Blog - {{ site.name }} 
+      {% endcapture %}
+    {% else %}
+      {% capture new_title %}
+        {{ page.title }} - {{ site.name }}
+      {% endcapture %}   
+    {% endif %}
+    <title>{{ new_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">        
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+          <h1><a href="/">{{ site.name }} Blog</a></h1>
+	
+          {{ content }}
+
+	  <hr>	
+
+	  <footer>
+	    {% include footer.html %}
+	  </footer>
+	</div>
+      </div> <!-- /row -->
+    </div> <!-- /container -->
+  </body>
+</html>
